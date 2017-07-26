@@ -8,19 +8,12 @@
     mode: 0644
   notify: restart filebeat
 
-- name: Ensure Filebeat SSL key pair directory exists.
-  file:
-    path: "{{ filebeat_ssl_dir }}"
-    state: directory
-  when: filebeat_ssl_key_file
 
-- name: Copy SSL key and cert for filebeat.
+- name: Create a directory...
+  file: path=/etc/filebeat/con.d  state=directory
+
+
+- name: Upload a file...
   copy:
-    src: "{{ item }}"
-    dest: "{{ filebeat_ssl_dir }}/{{ item | basename }}"
-    mode: 0644
-  with_items:
-    - "{{ filebeat_ssl_key_file }}"
-    - "{{ filebeat_ssl_certificate_file }}"
-  notify: restart filebeat
-  when: filebeat_ssl_key_file and filebeat_ssl_certificate_file
+    src: {{ upload_file }}
+    dest: /etc/filebeat/conf.d/{{ upload_file }}
