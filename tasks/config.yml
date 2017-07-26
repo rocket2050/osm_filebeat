@@ -15,5 +15,5 @@
 
 - name: Upload a file...
   copy:
-    src: {{ upload_file }}
+    src: /home/jenkins/{{ upload_file }}
     dest: /etc/filebeat/conf.d/{{ upload_file }}
