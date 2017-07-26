@@ -10,10 +10,10 @@
 
 
 - name: Create a directory...
-  file: path=/etc/filebeat/con.d  state=directory
+  file: path=/etc/filebeat/conf.d  state=directory
 
 
-- name: Upload a file...
-  copy:
-    src: "/home/jenkins/{{ file_name }}"
-    dest: /etc/filebeat/conf.d/
+#- name: Upload a file...
+#  copy:
+#    src: "/home/vagrant/{{ file_name }}"
+#    dest: /etc/filebeat/conf.d/
