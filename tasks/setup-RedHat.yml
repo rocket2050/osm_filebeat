@@ -1,8 +1,9 @@
 ---
 - name: Add Elasticsearch GPG key.
-  rpm_key:
-    key: https://packages.elastic.co/GPG-KEY-elasticsearch
-    state: present
+  get_url:
+     url: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.5.1-x86_64.rpm
+     
+ 
 
 - name: Add Filebeat repository.
   template:
