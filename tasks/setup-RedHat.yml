@@ -1,6 +1,6 @@
 ---
-- name: Add Elasticsearch GPG key.
-  get_url:
+- name: Add Filebeat GPG key.
+  uri:
      url: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.5.1-x86_64.rpm
      
  

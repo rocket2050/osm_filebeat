@@ -1,6 +1,6 @@
 ---
 - name: Ensure dependency is installed (Ubuntu).
-  get_url:
+  uri:
     url: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.5.1-amd64.deb 
     state: present
  # apt: name=apt-transport-https state=present
