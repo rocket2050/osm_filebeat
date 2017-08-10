@@ -23,4 +23,4 @@ filebeat_ssl_dir: /etc/pki/logstash
 filebeat_ssl_certificate_file: ""
 filebeat_ssl_key_file: ""
 filebeat_ssl_insecure: "false"
-Logstash_server_ip: ""
+Logstash_server_ip: "172.31.12.12"

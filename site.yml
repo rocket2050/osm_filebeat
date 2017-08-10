@@ -1,4 +1,4 @@
 ---
-- hosts: "{{ host }}"
+- hosts: local
   roles:
-     - filebeat 
+     - osm_filebeat 
