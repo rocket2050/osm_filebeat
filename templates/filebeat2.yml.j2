@@ -4,17 +4,14 @@ filebeat.idle_timeout: 5s
 filebeat.registry_file: .filebeat
 filebeat.config_dir: /etc/filebeat/conf.d
 filebeat.shutdown_timeout: 0
-name: nginx02.blackboxip.com
-tags:
-  - NGINX
-  - NON-PROD
+name: elk-prod-az-a.internal.beatoapp.com
 fields_under_root: false
 queue_size: 1000
 output.logstash:
   hosts:
-    - elk-server.blackboxip.com:5044
+    - elk-prod-az-a.internal.beatoapp.com:5044
   worker: 1
-  index: logstash-nginx
+  index: logstash
 logging.level: warning
 logging.to_syslog: false
 logging.to_files: true
