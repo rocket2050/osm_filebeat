@@ -1,4 +1,4 @@
 ---
 - hosts: local
   roles:
-     - osm_filebeat 
+     - /var/lib/awx/projects/_17__osm_filebeat
