@@ -6,7 +6,7 @@
     owner: root
     group: root
     mode: 0644
-  notify: restart filebeat
+ # notify: restart filebeat
 
 
 - name: Create a directory...
