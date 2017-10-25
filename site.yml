@@ -1,5 +1,5 @@
 ---
 - hosts: all
-  becomes: yes
+#  becomes: yes
   roles:
      - /var/lib/awx/projects/_17__osm_filebeat
