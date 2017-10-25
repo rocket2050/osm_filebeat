@@ -1,0 +1,25 @@
+filebeat.spool_size: 2048
+filebeat.publish_async: false
+filebeat.idle_timeout: 5s
+filebeat.registry_file: .filebeat
+filebeat.config_dir: /etc/filebeat/conf.d
+filebeat.shutdown_timeout: 0
+name: nginx02.blackboxip.com
+tags:
+  - NGINX
+  - NON-PROD
+fields_under_root: false
+queue_size: 1000
+output.logstash:
+  hosts:
+    - elk-server.blackboxip.com:5044
+  worker: 1
+  index: logstash-nginx
+logging.level: warning
+logging.to_syslog: false
+logging.to_files: true
+logging.files:
+  path: /var/log/filebeat
+  name: filebeat.log
+  rotateeverybytes: 99000000
+  keepfiles: 7
