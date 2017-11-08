@@ -1,15 +1,17 @@
 ---
+- name: Create a directory...
+  file: path=/etc/filebeat/conf.d  state=directory
+
 - name: Copy Filebeat configuration.
   template:
     src: filebeat2.yml.j2
-    dest: "/etc/filebeat/filebeat.yml"
+    dest: "/etc/filebeat/conf.d/filebeat.yml"
     owner: root
     group: root
     mode: 0644
  # notify: restart filebeat
 
 
-- name: Create a directory...
-  file: path=/etc/filebeat/conf.d  state=directory
+
 
 
