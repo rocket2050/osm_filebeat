@@ -1,12 +1,23 @@
 ---
 - name: Ensure dependency is installed (Ubuntu).
-  uri: 
-    #url: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.5.1-amd64.deb
-    url: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.6.3-amd64.deb
-    dest: /tmp/
+  apt: 
+    deb: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.6.3-amd64.deb
     state: present
- # apt: name=apt-transport-https state=present
 
-#- name: Install a .deb package from the internet.
-#  shell: "/tmp/filebeat-5.6.3-amd64.deb"
-#  become: true
+- name: To create Directory
+  file: path=/etc/filebeat/conf.d state=directory
+
+- name: To setup filebeat
+  template:
+    src: filebeat.yml.j2
+    dest: /etc/filebeat/filebeat.yml
+
+- name: To start and enable Filebeat
+  service:
+    name: filebeat
+    state: started
+    enabled: true
+
+- name: To add Kibana Dashboard
+  shell: /usr/share/filebeat/scripts/import_dashboards -only-index 
+  
